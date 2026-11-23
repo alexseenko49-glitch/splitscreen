@@ -83,7 +83,7 @@ protected:
 
         int created = 0;
         for (int i = 0; i < 4; ++i) {
-            auto pl = PlayLayer::create(level, false, false);
+            auto pl = PlayLayer::create(level, false);
             if (!pl) {
                 log::error("Split: PlayLayer {} не создался", i);
                 continue;
@@ -242,7 +242,6 @@ class $modify(SplitMenuLayer, MenuLayer) {
         } else {
             // запасной вариант: своё меню в левом верхнем углу
             auto win = CCDirector::sharedDirector()->getWinSize();
-            auto menu = CCMenu::create();
             menu->setPosition({0.f, 0.f});
             btn->setPosition({60.f, win.height - 30.f});
             menu->addChild(btn);
